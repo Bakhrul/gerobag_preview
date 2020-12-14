@@ -664,3 +664,6 @@ body {
         height: 45px;
     }
 }
+.slick-slide{
+    outline: none !important;
+}
