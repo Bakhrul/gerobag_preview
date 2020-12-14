@@ -6,17 +6,15 @@
     <title>Document</title>
     <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="vendor/Coverflow-Carousel-jQuery-dnSlide/dist/css/dnSlide-e5b62df849.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" href="css/style.css">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
         rel="stylesheet">
-    <style>        
-    .dnSlide-main{
-        height: 100% !important;
-    }
+    <style>
+       
     </style>
 </head>
 
@@ -133,8 +131,8 @@
     </section>
     <section class="about-wrapper">
         <div class="container">
-            <div class="row about-group">
-                <div class="col-lg-7 col-md-6">
+            <div class="row about-group align-items-center">
+                <div class="col-lg-6 col-md-5">
                     <h5 class="title-about">Mengenal Gerobac.com</h5>
                     <div class="description-about">GEROBAC.COM didirikan sebagai bentuk kepedulian dan keinginan kuat
                         menjadi partner belajar bagi
@@ -145,13 +143,15 @@
                             penjelasan jawaban yang benar. Hasil tes dapat dicetak dalam bentuk sertifikat.</p>
                     </div>
                 </div>
-                <div class="col-lg-5 col-md-6 d-flex align-items-center">
-                    <div class='dnSlide-main'>
-                        <img src="images/logo-about-1.png" width="100%">                 
-                        <img src="images/logo-about-2.jpeg" width="100%">                        
-                        <img src="images/logo-about-3.jpeg" width="100%">                                                                                                       
+                <div class="col-lg-6 col-md-7 align-items-center">
+                    <div class="slider-about">
+                        <div><img src="images/logo-about-1.png" width="100%"></div>
+                        <div><img src="images/logo-about-2.jpeg" width="100%"></div>
+                        <div> <img src="images/logo-about-3.jpeg" width="100%"></div>
                     </div>
+
                 </div>
+
             </div>
         </div>
     </section>
@@ -305,56 +305,43 @@
     </footer>
     <script src="vendor/jquery/dist/jquery.min.js"></script>
     <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="vendor/Coverflow-Carousel-jQuery-dnSlide/dist/js/dnSlide-e3d534bdc1.js"></script>
-    <script src="vendor/Coverflow-Carousel-jQuery-dnSlide/dist/js/expandJS-5472a5b81a.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
     <script>
-
+        $('.slider-about').slick({
+            centerMode: true,
+            centerPadding: '60px',
+            slidesToShow: 1,
+            arrows: false,
+            autoplay:true,
+            responsive: [{
+                    breakpoint: 768,
+                    settings: {
+                        autoplay:true,
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '60px',
+                        slidesToShow: 1
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        autoplay:true,
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '20px',
+                        slidesToShow: 1
+                    }
+                }
+            ]
+        });
         $(window).scroll(function () {
             70 < $(window).scrollTop() ?
                 $(".navbar-custom").addClass("shadow-nav") :
                 $(".navbar-custom").removeClass("shadow-nav");
         });
     </script>
-      <script>
-        jQuery(document).ready(function($) {
-            $(".dnSlide-main").each(function(index, el) {
-                var setting = {
-                    "width" : 1200 ,
-                    "height" : 234 ,
-                    "response" : true ,
-                    afterClickBtnFn :function(i){ console.log(i); },
-                };
-                switch (index) {
-                    case 0:
-                        setting.verticalAlign = "top" ;
-                        var api = $(el).dnSlide(setting).data( "dnSlide" );
-                        $(".hide").on("click",function(){
-                            api.hide(function(){
-                                
-                            });
-                        });
-                        $(".show").on("click",function(){
-                            api.show(function(){
-                                
-                            });
-                        });
-                        break;
-                    case 1:
-                        setting.autoPlay  =  true ;
-                        $(el).dnSlide(setting);
-                        break;
-                    case 2:
-                        setting.verticalAlign = "bottom" ;
-                        $(el).dnSlide(setting);
-                        break;
-                    default:
-                        $(el).dnSlide(setting);
-                        break;
-                }
-            });
-        });
-        </script>
 </body>
 
 </html>
